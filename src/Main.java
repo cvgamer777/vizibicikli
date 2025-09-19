@@ -12,7 +12,10 @@ public class Main {
     private static List<Kolcsonzes> kolcsonzesek;
 
     public static void main(String[] args) throws FileNotFoundException {
+
+
         //4. feladat
+
 
         kolcsonzesek = new ArrayList<>();
 
@@ -26,9 +29,23 @@ public class Main {
         }
 
         //6. feladat
-
+        System.out.println("Kerek egy nevet: ");
         Scanner in = new Scanner(System.in);
-        System.out.println("Kerek egy nevet: " + in);
+        String keresettNev = in.nextLine().trim();
+
+        boolean talalat = false;
+        for (Kolcsonzes i : kolcsonzesek) {
+            if (i.getNev().equalsIgnoreCase(keresettNev)) {
+                System.out.println(keresettNev + " kölcsönzései: ");
+
+                talalat = true;
+            }
+        }
+
+        if (!talalat) {
+            System.out.println("Ehhez a névhez nem tartozik adat.");
+        }
+
 
     }
 }
